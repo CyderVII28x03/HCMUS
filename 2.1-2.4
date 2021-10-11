@@ -1,0 +1,178 @@
+2.1: Các phần của chương trình C++
+  CHỦ ĐỀ: Các chương trình C++ luôn có các thành phần phục vụ các mục đích cụ thể.
+Mọi chương trình C++ đều có giải phẫu. Không như giải phẫu ở người, các phần của chương trình C++ không phải lúc nào cũng ở 1 nơi. Tuy nhiên, các bộ phận đều ở đó và bước đầu tiên của bạn trong việc học C++ là học chúng là những gì. Chúng ta sẽ bắt đầu bằng cách xem Chương trình 2-1.
+
+Chúng ta sẽ kiểm tra từng dòng của chương trình đầu tiên. Đây là chương trình đầu tiên:
+    // A simple C++ program
+Dấu "//" đánh dấu cho sự bắt đầu của một bình luận. Trình biên dịch bỏ qua mọi thứ từ gạch chéo kép xuống cuối dòng. Điều đó có nghĩa là bạn có thể nhập bất cứ thứ gì bạn muốn ở trên dòng đó và trình biên dịch sẽ chẳng bao giờ phàn nàn cả! Mặc dù nhận xét là không bắt buộc, nhưng chúng lại rất quan trọng đối với các lập trình viên. Hầu hết các chương trình phức tạp hơn nhiều so với ví dụ 2-1, và các nhận xét giúp giải thích điều gì đang xảy ra.
+
+Chương trình 2-1:
+// A simple C++ program
+ #include <iostream>
+ using namespace std;
+
+ int main()
+ {
+ cout << "Programming is great fun!";
+ return 0;
+ } 
+ 
+ Kết quả của chương trình được thể hiện ở dưới đây. Đây là những thứ sẽ xuất hiện trên màn hình khi chương trình chạy.
+ 
+Chương trình đầu ra: 
+Programming is great fun!
+
+Dòng 2 như thế này:
+ #include <iostream>
+Vì dòng này bắt đầu bằng dấu # nên nó được gọi là chỉ thị tiền xử lý.Bộ tiền xử lý đọc. Chương trình của bạn trước khi nó được biên dịch và chỉ thực thi những dòng bắt đầu bằng ký hiệu #. Hãy coi bộ tiền xử lý như một chương trình “thiết lập” mã nguồn của bạn cho trình biên dịch.
+
+Lệnh #include khiến bộ xử lý tiền xử lý đưa nội dung của một tệp khác vào chương trình. Từ bên trong giấu ngoặc, iostream, là tên của tệp sẽ được bao gồm. Tệp iostream chứa mã cho phép chương trình C++ hiển thị đầu ra trên màn hình và đọc đầu vào từ bàn phím. Vì chương trình này sử dụng cout để hiển thị đầu ra màn hình, nên tệp iostream phải được bao gồm.Nội dung của tệp iostream được đưa vào chương trình tại thời điểm câu lệnh #include xuất hiện. Tệp iostream được gọi là tệp tiêu đề, vì vậy nó phải được bao gồm ở đầu hoặc trên cùng của chương trình.
+
+  Dòng 3 ghi:
+   using namespace std;
+ Các chương trình thường chứa một số mục có tên duy nhất. Trong chương này, bạn sẽ học để tạo biến. Trong Chương 6, bạn sẽ học cách tạo các hàm. Trong chương 13, bạn sẽ học cách tạo ra các đối tượng. Các biến, hàm và đối tượng là ví dụ về các thực thể chương trình mà phải có tên. C ++ sử dụng không gian tên để tổ chức tên của các thực thể chương trình. Câu lệnh sử dụng không gian tên std; tuyên bố rằng chương trình sẽ truy cập các thực thể có tên là một phần của không gian tên được gọi là std. (Có, ngay cả không gian tên cũng có tên.) Lý do chương trình cần quyền truy cập vào không gian tên std là vì mọi tên được tạobởi tệp iostream là một phần của không gian tên đó. Để một chương trình sử dụng các thực thể trong iostream, nó phải có quyền truy cập vào không gian tên std.
+   Dòng 5 ghi:
+    int main()
+Điều này đánh dấu sự khởi đầu của một chức năng. Một chức năng có thể được coi là một nhóm của một hoặc nhiều câu lệnh lập trình có tên chung. Tên của chức năng này là main và tập hợp các dấu ngoặc đơn theo sau tên cho biết rằng nó là một hàm. Từ int là viết tắt của "số nguyên". Nó chỉ ra rằng hàm sẽ gửi một giá trị số nguyên trở lại hệ điều hành khi nó được thực thi xong.
+
+Mặc dù hầu hết các chương trình C ++ có nhiều hơn một hàm, nhưng mọi chương trình C ++ đều phải có một hàm được gọi là main. Nó là điểm bắt đầu của chương trình. Nếu bạn đang đọc chương trình C ++ của người khác và muốn tìm nơi nó bắt đầu, chỉ cần tìm hàm có tên là main.
+
+LƯU Ý: C ++ là ngôn ngữ phân biệt chữ hoa chữ thường. Điều đó có nghĩa là nó coi các chữ cái viết hoa là những ký tự hoàn toàn khác với các ký tự viết thường của chúng. Trong C ++, tên của hàm main phải được viết bằng tất cả các chữ cái thường. C ++ không thấy “Main” giống nhau là “main” hoặc “INT” giống như “int.” Điều này đúng với tất cả các từ khóa C ++.
+
+  Dòng 6 chứa một ký tự đơn lẻ:
+    {
+Đây được gọi là dấu ngoặc nhọn bên trái, hoặc dấu ngoặc nhọn mở, và nó được liên kết với phần đầu của hàm chính. Tất cả các câu lệnh tạo nên một hàm được đặt trong một tập hợp các dấu ngoặc nhọn. Nếu bạn nhìn xuống dòng thứ ba từ dấu ngoặc nhọn mở, bạn sẽ thấy dấu ngoặc nhọn đóng. Mọi thứ giữa hai dấu ngoặc nhọn là nội dung của hàm main.
+
+CẢNH BÁO! Đảm bảo rằng bạn có một dấu ngoặc nhọn đóng cho mọi dấu ngoặc nhọn mở trong chương trình của bạn!
+
+Sau dấu ngoặc nhọn mở, bạn thấy câu lệnh sau trong dòng 7:
+  cout << "Programming is great fun!";
+Nói một cách đơn giản, dòng này hiển thị một thông báo trên màn hình. Bạn sẽ đọc thêm về cout và toán tử << ở phần sau của chương này. Thông điệp "Programming is great fun!" được in mà không có dấu ngoặc kép. Theo thuật ngữ lập trình, nhóm ký tự bên trong dấu ngoặc kép được gọi là một chuỗi ký tự hoặc hằng chuỗi.
+
+LƯU Ý: Đây là dòng duy nhất trong chương trình khiến bất kỳ thứ gì được in trên màn hình. Các dòng khác, như #include <iostream> và int main (), là cần thiết cho khung chương trình của bạn, nhưng chúng không gây ra bất kỳ đầu ra màn hình nào. Hãy nhớ rằng, một chương trình là một tập hợp các hướng dẫn cho máy tính. Nếu một cái gì đó được hiển thị trên màn hình, bạn phải sử dụng một câu lệnh lập trình cho mục đích đó.
+
+Cuối dòng là dấu chấm phẩy. Cũng giống như dấu chấm đánh dấu sự kết thúc của một câu, dấu chấm phẩy đánh dấu sự kết thúc của một câu lệnh hoàn chỉnh trong C ++. Nhận xét bị trình biên dịch bỏ qua, vì vậy không cần có dấu chấm phẩy ở cuối nhận xét. Các lệnh tiền xử lý, như câu lệnh #include, chỉ cần kết thúc ở cuối dòng và không bao giờ yêu cầu dấu chấm phẩy. Phần đầu của một hàm, như int main (), không phải là một câu lệnh hoàn chỉnh, vì vậy bạn cũng đừng đặt dấu chấm phẩy ở đó.
+
+Có vẻ như các quy tắc về vị trí đặt dấu chấm phẩy không rõ ràng chút nào. Thay vì lo lắng về nó bây giờ, chỉ cần tập trung vào việc học các phần của một chương trình. Bạn sẽ sớm biết được nơi nào bạn nên và không nên sử dụng dấu chấm phẩy.
+
+   Dòng 8 ghi:
+    return 0;
+Điều này sẽ gửi giá trị số nguyên 0 trở lại hệ điều hành khi chương trình hoàn thành. Giá trị 0 thường chỉ ra rằng một chương trình được thực thi thành công.
+
+
+  Dòng 9 chứa dấu ngoặc nhọn đóng:
+    }
+Dấu ngoặc nhọn này đánh dấu sự kết thúc của hàm chính. Vì main là chức năng duy nhất trong chương trình này nên nó cũng đánh dấu sự kết thúc của chương trình.
+Trong chương trình mẫu, bạn đã gặp một số bộ ký tự đặc biệt. Bảng 2-1 cung cấp một bản tóm tắt ngắn gọn về cách chúng được sử dụng.
+
+Bảng 2-1: các kí tự đặc biệt
+Kí tự       Tên                     Mô tả
+//          Gạch chéo đôi           Đánh dấu phần đầu của một nhận xét.
+#           Thăng                   Đánh dấu sự bắt đầu của một chỉ thị tiền xử lý.
+< >         Mở và đóng ngoặc        Bao gồm tên tệp khi được sử dụng với chỉ thị #include.
+( )         Mở và đóng ngoặc đơn    Được sử dụng để đặt tên một hàm, như trong int main().
+{ }         Mở và đóng ngoặc nhọn   Bao gồm một nhóm các câu lệnh, chẳng hạn như nội dung của một hàm.
+" "         Mở và đóng ngoặc kép    Bao gồm một chuỗi ký tự, chẳng hạn như tin nhắn sẽ được in trên màn hình.
+;           Dấu chấm phẩy           Đánh dấu phần cuối của một câu lệnh lập trình hoàn chỉnh.
+
+CHECKPOINT:
+Chương trình C ++ sau sẽ không biên dịch vì các dòng đã được trộn lẫn.
+int main()
+ }
+// A crazy mixed up program
+return 0;
+#include <iostream>
+cout << "In 1492 Columbus sailed the ocean blue.";
+ {
+using namespace std;
+
+Khi các dòng được sắp xếp hợp lý, chương trình sẽ hiển thị những điều sau trên màn hình:
+
+In 1492 Columbus sailed the ocean blue.
+
+Sắp xếp lại các dòng theo đúng thứ tự. Kiểm tra chương trình bằng cách nhập nó vào máy tính, biên dịch nó và chạy nó.
+
+2.2: Đối tượng cout
+KHÁI NIỆM: Sử dụng đối tượng cout để hiển thị thông tin trên màn hình máy tính.
+Trong phần này, bạn sẽ học cách viết các chương trình tạo ra kết quả trên màn hình. Loại đầu ra màn hình đơn giản nhất mà một chương trình có thể hiển thị là đầu ra bảng điều khiển, chỉ đơn thuần là văn bản thuần túy. Bảng điều khiển từ là một thuật ngữ máy tính cũ. Nó bắt nguồn từ những ngày mà người vận hành máy tính tương tác với hệ thống bằng cách gõ vào thiết bị đầu cuối. Thiết bị đầu cuối, bao gồm một màn hình và bàn phím đơn giản, được gọi là bàn điều khiển.
+
+Trên các máy tính hiện đại, chạy hệ điều hành đồ họa như Windows hoặc Mac OS X, đầu ra bảng điều khiển thường được hiển thị trong một cửa sổ như trong hình 2-1. Trong C ++, bạn sử dụng đối tượng cout để tạo ra đầu ra bảng điều khiển. (Bạn có thể nghĩ từ cout có nghĩa là bàn điều khiển được đặt ra.)
+
+cout được phân loại là một đối tượng luồng, có nghĩa là nó hoạt động với các luồng dữ liệu. Để hiện một tin nhắn trên màn hình, bạn gửi một dòng ký tự để ghép. Hãy xem dòng 7 từ Chương trình 2-1:
+    cout << "Programming is great fun!";
+Lưu ý rằng toán tử << được sử dụng để gửi chuỗi "Lập trình rất thú vị!" để cout. Khi ký hiệu << được sử dụng theo cách này, nó được gọi là toán tử chèn luồng. Mục ngay lập tức bên phải của nhà điều hành được gửi đến cout và sau đó hiển thị trên màn hình.
+
+Toán tử chèn luồng luôn được viết dưới dạng hai dấu nhỏ hơn không có khoảng cách giữa chúng. Bởi vì bạn đang sử dụng nó để gửi một luồng dữ liệu đến đối tượng cout, bạn có thể coi toán tử chèn luồng như một mũi tên phải trỏ về phía cout. Điều này được minh họa trong Hình 2-2.
+Chương trình 2-2 là một cách khác để viết cùng một chương trình.
+
+        cout << "Programming is great fun!";
+Hãy nghĩ về toán tử chèn luồng như một mũi tên chỉ về phía cout.
+        cout <--- "Programming is great fun!";
+Chương trình 2-2:
+// A simple C++ program
+ #include <iostream>
+ using namespace std;
+ 
+  int main()
+  {
+ cout << "Programming is " << "great fun!";
+  return 0;
+  } 
+  
+Chương trình đầu ra: Programming is great fun!
+Như bạn có thể thấy, toán tử chèn luồng có thể được sử dụng để gửi nhiều mục đến cout. Đầu ra của chương trình này giống với đầu ra của Chương trình 2-1. Chương trình 2-3 cho thấy một cách khác để đạt được điều tương tự.
+
+Chương trình 2-3:
+// A simple C++ program
+  #include <iostream>
+  using namespace std;
+
+  int main()
+ {
+  cout << "Programming is ";
+  cout << "great fun!";
+  return 0;
+ } 
+ Chương trình đầu ra: Programming is great fun!
+ 
+Một khái niệm quan trọng cần hiểu về Chương trình 2-3 là, mặc dù đầu ra được chia thành hai câu lệnh lập trình, chương trình này vẫn sẽ hiển thị thông báo trên một dòng duy nhất. Trừ khi bạn chỉ định khác, thông tin bạn gửi đến cout được hiển thị trong một luồng liên tục. Đôi khi điều này có thể tạo ra kết quả kém hơn mong muốn. Chương trình 2-4 là một ví dụ.
+Bố cục của đầu ra thực tế trông không giống như cách sắp xếp của các chuỗi trong mã nguồn. Đầu tiên, hãy lưu ý rằng không có khoảng trống nào được hiển thị giữa các từ “sellers” và “during” hoặc giữa  "June” và “Computer”. cout hiển thị các tin nhắn chính xác như khi chúng được gửi đi. Nếu khoảng trắng được hiển thị, chúng phải xuất hiện trong chuỗi.
+
+Chương trình 2-4
+// An unruly printing program
+  #include <iostream>
+  using namespace std;
+ 
+  int main()
+  {
+  cout << "The following items were top sellers";
+  cout << "during the month of June:";
+  cout << "Computer games";
+  cout << "Coffee";
+  cout << "Aspirin";
+  return 0;
+  } 
+Chương trình đầu ra: The following items were top sellersduring the month of June:Computer gamesCoffeeAspirin 
+
+Thứ hai, mặc dù đầu ra được chia thành năm dòng trong mã nguồn, nó vẫn xuất hiện dưới dạng một dòng đầu ra dài. Vì đầu ra quá dài để vừa với một dòng trên màn hình, nó sẽ quấn quanh dòng thứ hai khi hiển thị. Lý do đầu ra xuất hiện dưới dạng một dòng dài là vì cout không bắt đầu một dòng mới trừ khi được yêu cầu làm như vậy. Có hai cách để hướng dẫn cout bắt đầu một dòng mới. Đầu tiên là gửi cho cout một trình điều khiển luồng được gọi là endl (được phát âm là “end-line” hoặc “end-L”). Chương trình 2-5 là một ví dụ.
+
+Chương trình 2-5:
+// A well-adjusted printing program
+  #include <iostream>
+  using namespace std;
+ 
+  int main()
+  {
+ cout << "The following items were top sellers" << endl;
+  cout << "during the month of June:" << endl;
+  cout << "Computer games" << endl;
+  cout << "Coffee" << endl;
+  cout << "Aspirin" << endl;
+  return 0;
+  } 
+Chương trình đầu ra:
+The following items were top sellers
+during the month of June:
+Computer games
+ Coffee
+ Aspirin
