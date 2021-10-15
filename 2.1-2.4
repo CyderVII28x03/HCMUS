@@ -176,3 +176,55 @@ during the month of June:
 Computer games
  Coffee
  Aspirin
+
+LƯU Ý: Ký tự cuối cùng trong endl là chữ L viết thường, không phải là số một.
+
+Mỗi khi cout gặp trình thao tác dòng endl, nó sẽ nâng đầu ra đến đầu dòng tiếp theo để in tiếp theo. Trình thao tác có thể được chèn vào bất kỳ đâu trong luồng ký tự được gửi đến cout, bên ngoài dấu ngoặc kép. Các câu sau đây cho thấy một ví dụ.
+  cout << "My pets are" << endl << "dog";
+  cout << endl << "cat" << endl << "bird" << endl; 
+Một cách khác để khiến cout chuyển sang một dòng mới là chèn một chuỗi thoát vào chính chuỗi đó. Chuỗi thoát bắt đầu bằng ký tự gạch chéo ngược (\) và theo sau là một hoặc nhiều ký tự điều khiển. Nó cho phép bạn kiểm soát cách hiển thị đầu ra bằng cách nhúng các lệnh vào chính chuỗi. Chương trình 2-6 là một ví dụ.
+
+// Yet another well-adjusted printing program
+ #include <iostream>
+ using namespace std;
+
+ int main()
+ {
+ cout << "The following items were top sellers\n";
+ cout << "during the month of June:\n";
+ cout << "Computer games\nCoffee";
+ cout << "\nAspirin\n";
+ return 0;
+ } 
+ 
+Chương trình đầu ra:
+The following items were top sellers
+during the month of June:
+Computer games
+ Coffee
+ Aspirin 
+ 
+Trình tự thoát dòng mới là \ n. Khi cout gặp \ n trong một chuỗi, nó sẽ không in ra màn hình mà diễn giải nó như một lệnh đặc biệt để đưa con trỏ đầu ra tới dòng tiếp theo. Bạn có thể nhận thấy rằng việc chèn trình tự thoát yêu cầu ít nhập hơn so với chèn endl. Đó là lý do tại sao nhiều lập trình viên thích nó.
+Một sai lầm phổ biến của sinh viên C ++ mới bắt đầu là sử dụng dấu gạch chéo lên (/) thay vì dấu gạch chéo ngược (\) khi cố gắng viết một chuỗi thoát. Điều này sẽ không hoạt động. Ví dụ, hãy xem đoạn mã sau.
+
+// Error!
+cout << "Four Score/nAnd seven/nYears ago./n"; 
+
+Trong đoạn mã này, lập trình viên đã vô tình viết / n khi họ muốn viết \ n. Đối tượng cout sẽ chỉ hiển thị các ký tự / n trên màn hình. Mã này sẽ hiển thị đầu ra sau:
+    Four Score/nAnd seven/nYears ago./n
+Một lỗi phổ biến khác là quên đặt \ n bên trong dấu ngoặc kép. Ví dụ, đoạn mã sau sẽ không biên dịch.
+
+// Error! This code will not compile.
+cout << "Good" << \n;
+cout << "Morning" << \n;
+
+Mã này sẽ dẫn đến lỗi vì \ n chuỗi không nằm trong dấu ngoặc kép. Chúng ta có thể sửa mã bằng cách đặt \ n chuỗi bên trong chuỗi ký tự, như được hiển thị ở đây:
+// This will work.
+cout << "Good\n";
+cout << "Morning\n";
+
+Có rất nhiều trình tự thoát trong C ++. Chúng cung cấp cho bạn khả năng kiểm soát tốt hơn cách thông tin được xuất ra bởi chương trình của bạn. Bảng 2-2 liệt kê một vài trong số chúng.
+
+\n      Dòng mới        Làm cho con trỏ chuyển đến dòng tiếp theo để in tiếp theo.
+\t      Tab ngang       Làm cho con trỏ bỏ qua tab tiếp theo.
+\a      Báo động (?)    Khiến máy tính phát ra tiếng bíp.
