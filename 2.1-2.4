@@ -225,6 +225,105 @@ cout << "Morning\n";
 
 Có rất nhiều trình tự thoát trong C ++. Chúng cung cấp cho bạn khả năng kiểm soát tốt hơn cách thông tin được xuất ra bởi chương trình của bạn. Bảng 2-2 liệt kê một vài trong số chúng.
 
-\n      Dòng mới        Làm cho con trỏ chuyển đến dòng tiếp theo để in tiếp theo.
-\t      Tab ngang       Làm cho con trỏ bỏ qua tab tiếp theo.
-\a      Báo động (?)    Khiến máy tính phát ra tiếng bíp.
+\n      Dòng mới          Làm cho con trỏ chuyển đến dòng tiếp theo để in tiếp theo.
+\t      Tab ngang         Làm cho con trỏ bỏ qua tab tiếp theo.
+\a      Báo động (?)      Khiến máy tính phát ra tiếng bíp.
+\b      Backspace <?>     Làm cho con trỏ sao lưu hoặc di chuyển sang trái một vị trí.
+\r      Quay lại          Làm cho con trỏ di chuyển đến đầu dòng hiện tại, không phải dòng sau.
+\\      Gạch chéo ngược   Ghi một dấu gạch chéo ngược.
+\'      Dấu nháy đơn      Ghi một dấu nháy đơn.
+\"      Dấu nháy kép      Ghi một dấu nháy kép.
+
+CẢNH BÁO! Khi sử dụng trình tự thoát, không đặt khoảng cách giữa dấu gạch chéo ngược và ký tự điều khiển.
+
+Khi bạn nhập một chuỗi thoát trong một chuỗi, bạn nhập hai ký tự (một dấu gạch chéo ngược theo sau là một ký tự khác). Tuy nhiên, một chuỗi thoát được lưu trữ trong bộ nhớ dưới dạng một ký tự duy nhất. Ví dụ: hãy xem xét chuỗi ký tự sau:
+  "One\nTwo\nThree\n" 
+Sơ đồ trong hình 2-3 ngắt chuỗi này thành các ký tự riêng lẻ của nó. Lưu ý cách mỗi trong số \ n chuỗi thoát được coi là một ký tự.
+
+2.3: Chỉ thị #include
+KHÁI NIỆM: Lệnh #include khiến nội dung của tệp khác được chèn vào chương trình.
+
+Như bạn đã khám phá trong Chương 1, các biến cho phép bạn lưu trữ và làm việc với dữ liệu trong bộ nhớ của máy tính. Chúng cung cấp một “giao diện” cho RAM. Một phần của công việc lập trình là xác định chương trình sẽ cần bao nhiêu biến và loại thông tin nào chúng sẽ
+tổ chức. Chương trình 2-7 là một ví dụ về chương trình C ++ với một biến. Hãy xem dòng 7:
+int number;
+Đây được gọi là định nghĩa biến. Nó cho trình biên dịch biết tên của biến và loại dữ liệu mà nó sẽ giữ. Dòng này cho biết tên của biến là số. Từ int là viết tắt của số nguyên, vì vậy số sẽ chỉ được sử dụng để chứa các số nguyên. Phần sau của chương này, bạn sẽ tìm hiểu tất cả các kiểu dữ liệu mà C ++ cho phép.
+
+Chương trình 2-7:
+// This program has a variable.
+  #include <iostream>
+  using namespace std;
+ 
+  int main()
+  {
+  int number;
+ 
+  number = 5;
+ cout << "The value in number is " << number << endl;
+  return 0;
+  } 
+Chương trình đầu ra:
+The value number is 5
+LƯU Ý: Bạn phải có định nghĩa cho mọi biến mà bạn định sử dụng trong một chương trình. Trong C ++, các định nghĩa biến có thể xuất hiện tại bất kỳ thời điểm nào trong chương trình. Ở phần sau của chương này, và trong suốt cuốn sách, bạn sẽ tìm hiểu những vị trí tốt nhất để xác định các biến.
+
+Lưu ý rằng các định nghĩa biến kết thúc bằng dấu chấm phẩy. Bây giờ nhìn vào dòng 9:
+number = 5;
+Đây được gọi là nhiệm vụ. Dấu bằng là một toán tử sao chép giá trị ở bên phải của nó (5) vào biến có tên ở bên trái (số) của nó. Sau khi dòng này thực thi, số sẽ được đặt thành 5.
+
+LƯU Ý: Dòng này không in bất kỳ thứ gì trên màn hình máy tính. Nó chạy âm thầm đằng sau, lưu trữ một giá trị trong RAM.
+Nhìn vào dòng 10:
+  cout << "The value in number is " << number << endl;
+Mục thứ hai được gửi đến cout là số tên biến. Khi bạn gửi một tên biến để cout, nó sẽ in nội dung của biến. Chú ý không có dấu ngoặc kép xung quanh số.
+Hãy xem những gì xảy ra trong Chương trình 2-8.
+
+// This program has a variable.
+  #include <iostream>
+  using namespace std;
+ 
+ int main()
+  {
+  int number;
+ 
+  number = 5; 
+  cout << "The value in number is " << "number" << endl;
+  return 0;
+  } 
+Chương trình đầu ra: 
+The value in number is number
+
+Khi dấu ngoặc kép được đặt xung quanh số từ, nó sẽ trở thành một chuỗi ký tự và không còn là một tên biến nữa. Khi các ký tự chuỗi được gửi đến cout, chúng được in chính xác như xuất hiện bên trong dấu ngoặc kép. Bạn có thể nhận thấy rằng trình điều khiển luồng endl không có dấu ngoặc kép xung quanh nó, vì lý do tương tự.
+
+Đôi khi một con số không phải là một con số
+Như được hiển thị trong Chương trình 2-8, chỉ cần đặt dấu ngoặc kép xung quanh tên biến sẽ thay đổi kết quả của chương trình. Trên thực tế, việc đặt dấu ngoặc kép xung quanh bất kỳ thứ gì không nhằm mục đích là một chuỗi ký tự sẽ tạo ra một số loại lỗi. Ví dụ, trong Chương trình 2-8, số 5 được gán cho số biến. Sẽ không chính xác nếu thực hiện nhiệm vụ theo cách này: number = "5";
+
+Trong dòng này, 5 không còn là một số nguyên nữa mà là một chuỗi ký tự. Vì số được định nghĩa là một biến số nguyên, bạn chỉ có thể lưu trữ số nguyên trong đó. Số nguyên 5 và chuỗi ký tự “5” không giống nhau.
+Thực tế là các số có thể được biểu diễn dưới dạng chuỗi thường gây nhầm lẫn cho sinh viên mới học lập trình. Chỉ cần nhớ rằng các chuỗi được thiết kế để con người đọc. Chúng phải được in trên màn hình máy tính hoặc giấy. Các con số, tuy nhiên, chủ yếu nhằm mục đích cho các phép toán. Bạn không thể thực hiện toán học trên chuỗi. Trước khi các số có thể được hiển thị trên màn hình, trước tiên chúng phải được chuyển đổi thành chuỗi. (May mắn thay, cout xử lý chuyển đổi tự động khi bạn gửi một số cho nó.)
+
+Giá trị thể hiện:
+Chữ là một phần dữ liệu được ghi trực tiếp vào mã của chương trình. Một trong những cách sử dụng phổ biến nhất của các chữ là gán một giá trị cho một biến. Ví dụ, trong câu lệnh sau, giả sử rằng số là một biến int. Câu lệnh gán giá trị chữ 100 cho biến số:
+number = 100;
+Một cách sử dụng phổ biến khác của các chữ là để hiển thị một cái gì đó trên màn hình. Ví dụ: câu lệnh sau đây hiển thị chuỗi chữ “Welcome to my program”.
+cout << "Welcome to my program." << endl;
+Chương trình 2-9 hiển thị một ví dụ sử dụng một biến và một số ký tự.
+ // This program has literals and a variable.
+  #include <iostream>
+  using namespace std; 
+  
+  int main()
+ {
+ int apples;
+
+  apples = 20;
+ cout << "Today we sold " << apples << " bushels of apples.\n";
+ return 0;
+  } 
+Chương trình đầu ra:
+Today we sold 20 bushels of apples.
+Tất nhiên, biến là apple. Nó được định nghĩa là một số nguyên. Bảng 2-3 liệt kê các ký tự được tìm thấy trong chương trình.
+
+Giá trị                     Loại giá trị thể hiện
+20                          Integer
+"Today we sold"             String  
+"bushels of apples.\n"      String
+0                           Integer
+
+LƯU Ý: Giá trị viết còn được gọi là hằng số.
