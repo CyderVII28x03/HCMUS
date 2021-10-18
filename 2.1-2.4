@@ -243,6 +243,53 @@ Sơ đồ trong hình 2-3 ngắt chuỗi này thành các ký tự riêng lẻ c
 2.3: Chỉ thị #include
 KHÁI NIỆM: Lệnh #include khiến nội dung của tệp khác được chèn vào chương trình.
 
+Bây giờ là thời điểm tốt để mở rộng cuộc thảo luận của chúng ta về chỉ thị #include. Dòng sau đây đã xuất hiện gần đầu mỗi chương trình ví dụ.
+#include <iostream>
+Tệp tiêu đề iostream phải được bao gồm trong bất kỳ chương trình nào sử dụng đối tượng cout. Điều này là do cout không phải là một phần của “cốt lõi” của ngôn ngữ C ++. Cụ thể, nó là một phần của thư viện luồng đầu vào - đầu ra. Tệp tiêu đề, iostream, chứa thông tin mô tả các đối tượng iostream. Nếu không có nó, trình biên dịch sẽ không biết cách biên dịch đúng cách một chương trình sử dụng cout. Các chỉ thị tiền xử lý không phải là các câu lệnh C ++. Chúng là các lệnh cho bộ tiền xử lý,
+chạy trước trình biên dịch (do đó có tên là “bộ tiền xử lý”). Công việc của bộ tiền xử lý là thiết lập các chương trình theo cách giúp cuộc sống của lập trình viên trở nên dễ dàng hơn.
+Ví dụ: bất kỳ chương trình nào sử dụng đối tượng cout phải chứa thông tin thiết lập mở rộng được tìm thấy trong iostream. Lập trình viên có thể nhập tất cả thông tin này vào chương trình, nhưng sẽ quá tốn thời gian. Một giải pháp thay thế là sử dụng trình chỉnh sửa để “cắt và dán” thông tin vào chương trình, nhưng điều đó cũng sẽ nhanh chóng trở nên mệt mỏi. Giải pháp là để bộ tiền xử lý tự động chèn nội dung của iostream.
+CẢNH BÁO! Không đặt dấu chấm phẩy ở cuối các lệnh của bộ xử lý. Vì chỉ thị tiền xử lý không phải là câu lệnh C ++ nên chúng không yêu cầu dấu chấm phẩy. Trong nhiều trường hợp, một lỗi sẽ xuất phát từ một chỉ thị tiền xử lý được kết thúc bằng dấu chấm phẩy.
+Chỉ thị #include phải luôn chứa tên của tệp. Bộ tiền xử lý sẽ chèn toàn bộ nội dung của tệp vào chương trình tại điểm nó gặp chỉ thị #include. Trình biên dịch thực sự không thấy lệnh #include. Thay vào đó, nó nhìn thấy mã đã được chèn bởi bộ tiền xử lý, giống như thể người lập trình đã nhập nó vào đó. Mã chứa trong các tệp tiêu đề là mã C ++. Thông thường, nó mô tả các đối tượng phức tạp như cout. Sau đó, bạn sẽ học cách tạo các tệp tiêu đề của riêng bạn.
+
+CHECKPOINT: Chương trình C ++ sau sẽ không biên dịch vì các dòng đã bị trộn lẫn.
+
+cout << "Success\n";
+cout << " Success\n\n";
+int main()
+cout << "Success";
+ }
+ using namespace std;
+// It's a mad, mad program
+#include <iostream>
+cout << "Success\n";
+ {
+return 0; 
+Khi các dòng được sắp xếp hợp lý, chương trình sẽ hiển thị những thứ sau trên màn hình:
+Chương trình đầu ra: Success
+Success Success
+ Success 
+ 
+ Sắp xếp lại các dòng theo đúng thứ tự. Kiểm tra chương trình bằng cách nhập nó vào máy tính, biên dịch nó và chạy nó.
+ Nghiên cứu chương trình sau và hiển thị những gì nó sẽ in trên màn hình.
+ 
+ // The Works of Wolfgang
+#include <iostream>
+using namespace std;
+int main()
+ {
+ cout << "The works of Wolfgang\ninclude the following";
+ cout << "\nThe Turkish March" << endl;
+ cout << "and Symphony No. 40 ";
+ cout << "in G minor." << endl;
+ return 0;
+ } 
+ 
+Trên giấy, hãy viết một chương trình sẽ hiển thị tên của bạn ở dòng đầu tiên, địa chỉ đường phố của bạn ở dòng thứ hai, thành phố, tiểu bang và mã ZIP của bạn ở dòng thứ ba, và số điện thoại của bạn ở dòng thứ tư. Đặt một bình luận với ngày hôm nay ở đầu chương trình. Kiểm tra chương trình của bạn bằng cách nhập, biên dịch và chạy nó.
+
+2.4: Biến và Giá trị:
+
+KHÁI NIỆM: Các biến thể hiện vị trí lưu trữ trong bộ nhớ của máy tính. Giá trị là các giá trị không đổi được gán cho các biến.
+
 Như bạn đã khám phá trong Chương 1, các biến cho phép bạn lưu trữ và làm việc với dữ liệu trong bộ nhớ của máy tính. Chúng cung cấp một “giao diện” cho RAM. Một phần của công việc lập trình là xác định chương trình sẽ cần bao nhiêu biến và loại thông tin nào chúng sẽ
 tổ chức. Chương trình 2-7 là một ví dụ về chương trình C ++ với một biến. Hãy xem dòng 7:
 int number;
