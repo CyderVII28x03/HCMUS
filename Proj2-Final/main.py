@@ -4,16 +4,16 @@ import pygame
 from pygame.locals import * 
 
 # Game
-FPS = 30
+FPS = 32
 SCREENWIDTH = 289
 SCREENHEIGHT = 511
 SCREEN = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT))
 GROUNDY = SCREENHEIGHT * 0.8
 GAME_SPRITES = {}
 GAME_SOUNDS = {}
-PLAYER = 'gallery/sprites/bird.png'
-BACKGROUND = 'gallery/sprites/background.png'
-PIPE = 'gallery/sprites/pipe.png'
+PLAYER = 'Files/sprites/bird.png'
+BACKGROUND = 'Files/sprites/background.png'
+PIPE = 'Files/sprites/pipe.png'
 
 def welcomeScreen():
     """
@@ -37,7 +37,7 @@ def welcomeScreen():
             else:
                 SCREEN.blit(GAME_SPRITES['background'], (0, 0))    
                 SCREEN.blit(GAME_SPRITES['player'], (playerx, playery))    
-                SCREEN.blit(GAME_SPRITES['message'], (messagex,messagey ))    
+                #SCREEN.blit(GAME_SPRITES['message'], (messagex,messagey ))    
                 SCREEN.blit(GAME_SPRITES['base'], (basex, GROUNDY))    
                 pygame.display.update()
                 FPSCLOCK.tick(FPS)
